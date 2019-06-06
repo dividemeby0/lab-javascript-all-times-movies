@@ -32,26 +32,21 @@ function orderByDuration(movies) {
       durationCompare = 1;
     } else if (durationA < durationB) {
      durationCompare = -1;
+    } else if (durationA === durationB) {
+      if (a.title > b.title) {
+        durationCompare = 1;
+      } else if (a.title < b.title) {
+        durationCompare = -1;
+      } else { 
+        durationCompare = 0;
+      }
     }
     return durationCompare;
   }
   return movies.sort(compare);
 }
 
-  // function compareTitles (c, d) {
-  //   const titleC = c.title;
-  //   const titleD = d.title;
-  //   let titleCompare = 0;
-  //   if (titleC > titleD) {
-  //     titleCompare = 1;
-  //   } else if (titleC < titleD) {
-  //     titleCompare = -1;
-  //   }
-  //   return titleCompare;
-  // }
-  // if (durationA === durationB) {
-  //   return movies.sort(compareTitles);
-  // }
+
 
 // How many movies did STEVEN SPIELBERG
 
@@ -86,5 +81,27 @@ function orderAlphabetically(movies) {
   console.log(movieTitlesSorted);
   return movieTitlesSorted;
 }
+
+orderAlphabetically = myMovies => {
+  var titlesMovies = [];
+  myMovies.map(oneMovie => {
+    titlesMovies.push(oneMovie.title);
+  });
+  titlesMovies.sort((a, b) => {
+    if (a > b) {
+      return 1;
+    } else if (a < b) { 
+      return -1; 
+    } else { 
+      return 0; 
+    } 
+  }); 
+  if (titlesMovies.length > 20) { 
+    return titlesMovies.slice(0, 20); 
+  } else { 
+    return titlesMovies; 
+  } 
+};
+
 
 // Best yearly rate average
